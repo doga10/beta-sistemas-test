@@ -2,8 +2,12 @@
 
 namespace App\Entities;
 
+use OpenApi\Annotations as OA;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @OA\Schema()
+ */
 class Contact extends Model
 {
     protected $fillable = [
