@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {
     private $rules = [
-        "user_id" => "required",
+        "user_id" => "required|integer",
         "name" => "required",
         "email" => "required|email",
-        "phone" => "required|email",
+        "phone" => "required",
     ];
 
     public function index()
@@ -31,7 +31,7 @@ class ContactController extends Controller
         return $contact;
     }
 
-    public function update(Request $request, $contact)
+    public function update(Request $request, Contact $contact)
     {
         $this->validate($request, $this->rules);
         return $contact->update($request->all());
