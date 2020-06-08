@@ -367,7 +367,6 @@ components:
           type: string
           format: date-time
     SocialFacebookAccount:
-        'user_id', 'provider_user_id', 'provider'
       properties:
         id:
           type: integer
