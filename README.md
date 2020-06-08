@@ -35,6 +35,10 @@ Aposta subir o servidor Laravel, vá ao endereço `http://localhost:8000/swagger
 
 ###### Comandos para ambiente docker:
 
+- `cp .env.example .env`
+
+- `composer install`
+
 - `docker-compose up --build`
 
 - `docker-compose exec db bash`
@@ -55,7 +59,8 @@ apois rodar o comando `docker-compose exec db bash` você irá entrar no shell d
 
 - `docker-compose exec app php artisan config:cache`
 
-- `docker-compose exec app php artisan migrate`
+- `docker-compose exec app php artisan migrate:reset`
 
 - `docker-compose exec app php artisan passport:install`
 
+Aposta todos os comandos retornarem OK, vá ao endereço `http://localhost/swagger/index.html` e lá vai estar a docs da API
