@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\V1;
 
 use App\Entities\Contact;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -18,6 +19,11 @@ class ContactController extends Controller
     public function index()
     {
         return Contact::all();
+    }
+
+    public function contacts(Request $request)
+    {
+        return Contact::where('user_id', Auth::user()->id)->get();
     }
 
     public function store(Request $request)

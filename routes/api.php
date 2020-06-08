@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['namespace' => 'API'], function () {
+Route::group(['namespace' => 'V1'], function () {
     Route::post('login', 'AuthController@login')->name('auth.login');
     Route::post('users', 'UserController@store')->name('users.store');
+    Route::get('users/contacts', 'ContactController@contacts')->middleware('auth:api')->name('users.contacts');
     Route::get('users', 'UserController@all')->middleware('auth:api')->name('users.index');
     Route::put('users/{user}', 'UserController@update')->middleware('auth:api')->name('users.update');
     Route::get('users/{user}', 'UserController@show')->middleware('auth:api')->name('users.show');

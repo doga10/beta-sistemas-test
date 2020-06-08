@@ -38,6 +38,12 @@ class ContactControllerTest extends TestCase
         $this->contacts = factory(Contact::class, 10)->create();
     }
 
+    public function testContacts()
+    {
+        $response = $this->withHeaders(['Authorization' => "Bearer " . $this->token])->get(route('users.contacts'));
+        $response->assertStatus(200)->assertJson($this->contacts->toArray());
+    }
+
     public function testIndex()
     {
         $response = $this->withHeaders(['Authorization' => "Bearer " . $this->token])->get(route('contacts.index'));
