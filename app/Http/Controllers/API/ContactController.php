@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\V1;
+namespace App\Http\Controllers\API;
 
 use App\Entities\Contact;
 use App\Http\Controllers\Controller;

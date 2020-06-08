@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['namespace' => 'V1'], function () {
+Route::group(['namespace' => 'API'], function () {
     Route::post('login', 'AuthController@login')->name('auth.login');
     Route::post('users', 'UserController@store')->name('users.store');
     Route::get('users/contacts', 'ContactController@contacts')->middleware('auth:api')->name('users.contacts');

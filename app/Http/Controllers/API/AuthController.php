@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\V1;
+namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -21,13 +21,5 @@ class AuthController extends Controller
         $accessToken = Auth::user()->createToken('authToken')->accessToken;
 
         return response([ 'user' => Auth::user(), "token" => $accessToken ]);
-    }
-
-    public function logout(Request $request)
-    {
-        $request->user()->token()->revoke();
-        return response()->json([
-            'message' => 'Successfully logged out'
-        ]);
     }
 }
