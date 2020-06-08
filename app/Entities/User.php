@@ -5,7 +5,11 @@ namespace App\Entities;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use OpenApi\Annotations as OA;
 
+/**
+ * @OA\Schema()
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, Notifiable;
