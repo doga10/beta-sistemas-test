@@ -21,7 +21,13 @@ class UserController extends Controller
             "password" => "required"
         ]);
 
-        return User::create($request->all());
+        $user = new User();
+        $user->email = $request->get('email');
+        $user->name = $request->get('name');
+        $user->password = bcrypt($request->get('password'));
+        $user->save();
+
+        return $user;
     }
 
     public function show(User $user)
