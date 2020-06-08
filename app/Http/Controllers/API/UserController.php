@@ -17,17 +17,16 @@ class UserController extends Controller
     {
         $this->validate($request, [
             "email" => "required|email",
-            "name" => "required",
-            "password" => "required"
+            "name" => "required|string",
+            "password" => "required|string"
         ]);
 
-        $user = new User();
-        $user->email = $request->get('email');
-        $user->name = $request->get('name');
-        $user->password = bcrypt($request->get('password'));
-        $user->save();
-
-        return $user;
+        $data = [
+            "email" => $request->get('email'),
+            "name" => $request->get('name'),
+            "password" =>  bcrypt($request->get('password'))
+        ];
+        return User::create($data);
     }
 
     public function show(User $user)
