@@ -8,7 +8,15 @@ use Laravel\Passport\HasApiTokens;
 use OpenApi\Annotations as OA;
 
 /**
- * @OA\Schema()
+ * @OA\Schema(
+ *     schema="User",
+ *     @OA\Property(type="integer", property="id"),
+ *     @OA\Property(type="string", property="name"),
+ *     @OA\Property(type="string", property="email"),
+ *     @OA\Property(type="string", property="password"),
+ *     @OA\Property(type="string", property="created_at", format="date-time"),
+ *     @OA\Property(type="string", property="updated_at", format="date-time"),
+ * )
  */
 class User extends Authenticatable
 {

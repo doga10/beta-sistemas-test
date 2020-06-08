@@ -354,6 +354,8 @@ components:
       properties:
         id:
           type: integer
+        user_id:
+          type: integer
         name:
           type: string
         email:
@@ -366,6 +368,7 @@ components:
         updated_at:
           type: string
           format: date-time
+      type: object
     SocialFacebookAccount:
       properties:
         id:
@@ -382,6 +385,7 @@ components:
         updated_at:
           type: string
           format: date-time
+      type: object
     User:
       properties:
         id:
@@ -398,3 +402,4 @@ components:
         updated_at:
           type: string
           format: date-time
+      type: object
